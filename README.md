@@ -1,8 +1,8 @@
 # PM Vietnamese Copilot
 
-A claude-sonnet-5-sonnet-5 plugin and reusable PM skill for turning incomplete product-management input into clear decisions, execution-ready artifacts, and measurable plans.
+A reusable PM skill for turning incomplete product-management input into clear decisions, execution-ready artifacts, and measurable plans.
 
-The plugin is designed for Vietnamese-speaking product teams, while supporting English and Vietnamese-English bilingual deliverables. It combines practical PM workflows with a Karpathy-inspired decision-quality gate: clarify before acting, prefer the smallest useful scope, make changes surgically, and define how results will be verified.
+The skill is designed for Vietnamese-speaking product teams, while supporting English and Vietnamese-English bilingual deliverables. It combines practical PM workflows with a Karpathy-inspired decision-quality gate: clarify before acting, prefer the smallest useful scope, make changes surgically, and define how results will be verified.
 
 ## What it provides
 
@@ -49,31 +49,37 @@ Before producing a major artifact, the skills apply four principles:
 
 The skills do not invent metrics, customer quotes, research findings, market facts, or stakeholder approval. Unknowns are labeled as assumptions and paired with the cheapest useful validation when appropriate.
 
-## Installation for claude-sonnet-5-sonnet-5 Code
+## Installation
 
-### Install from the marketplace
+### Install skills directly
 
-Add this repository as a claude-sonnet-5-sonnet-5 plugin marketplace and install the plugin:
-
-```bash
-claude plugin marketplace add dannyhoang249-hub/pm-vietnamese-copilot
-claude plugin install pm-vietnamese-copilot@pm-vietnamese-copilot
-```
-
-Start a new claude-sonnet-5-sonnet-5 conversation after installation so the plugin metadata and skills are loaded.
-
-### Install locally for development
-
-Clone the repository and add it as a local marketplace:
+Clone the repository and copy skills to your AI agent's skill directory:
 
 ```bash
-git clone https://github.com/dannyhoang249-hub/pm-vietnamese-copilot.git
-cd pm-vietnamese-copilot
-claude plugin marketplace add .
-claude plugin install pm-vietnamese-copilot@pm-vietnamese-copilot
+git clone https://github.com/dannyhoang249-hub/pm-vietnamese-skill.git
+cd pm-vietnamese-skill
+
+# Install the main Vietnamese PM copilot skill
+cp -r skills/pm-vietnamese-copilot ~/.hermes/skills/
+
+# Optional: Install bilingual and decision-quality skills
+cp -r skills/pm-bilingual-copilot ~/.hermes/skills/
+cp -r skills/pm-karpathy-thinking ~/.hermes/skills/
 ```
 
-After changing skill or command files, reinstall or update the local plugin and start a new conversation.
+Replace `~/.hermes/skills/` with your agent's skill directory path.
+
+### Use as root skill
+
+Alternatively, reference the root SKILL.md directly in your agent configuration, or copy it to your skill directory:
+
+```bash
+cp SKILL.md ~/.hermes/skills/pm-vietnamese-copilot.md
+```
+
+### Verify installation
+
+Ask your agent to list available PM skills. You should see `pm-vietnamese-copilot`, `pm-bilingual-copilot`, and `pm-karpathy-thinking`.
 
 ## Usage examples
 
@@ -143,11 +149,7 @@ The skills can produce:
 
 ```text
 .
-├── .claude-plugin/
-│   ├── marketplace.json       # claude-sonnet-5-sonnet-5 marketplace metadata
-│   └── plugin.json            # Plugin metadata
-├── commands/                  # Slash-command workflows
-├── references/                # Vietnamese and bilingual PM templates
+├── commands/                  # Command workflows for /discover, /write-prd, etc.
 ├── skills/
 │   ├── pm-vietnamese-copilot/
 │   │   ├── SKILL.md
