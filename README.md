@@ -1,4 +1,4 @@
-# PM Vietnamese Copilot
+# 
 
 A reusable PM skill for turning incomplete product-management input into clear decisions, execution-ready artifacts, and measurable plans.
 
