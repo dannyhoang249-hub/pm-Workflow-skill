@@ -1,9 +1,9 @@
 ---
-name: pm-bilingual-copilot
+name: pm-bilingual
 description: Create concise bilingual Vietnamese-English product management artifacts and translate PM context accurately across both languages. Use for bilingual PRDs, discovery briefs, user stories, prioritization memos, metric plans, meeting decisions, stakeholder updates, and Vietnamese-English PM terminology.
 ---
 
-# Bilingual PM Copilot | PM Copilot song ngữ
+# Bilingual PM | PM song ngữ
 
 Create PM deliverables that a Vietnamese-English product team can read, discuss, and execute without losing meaning between languages.
 

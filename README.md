@@ -1,18 +1,18 @@
-# 
+# PM Vietnamese Skills
 
-A reusable PM skill for turning incomplete product-management input into clear decisions, execution-ready artifacts, and measurable plans.
+Product management skills for Vietnamese-speaking teams. Turn incomplete input into clear decisions, execution-ready artifacts, and measurable plans.
 
-The skill is designed for Vietnamese-speaking product teams, while supporting English and Vietnamese-English bilingual deliverables. It combines practical PM workflows with a Karpathy-inspired decision-quality gate: clarify before acting, prefer the smallest useful scope, make changes surgically, and define how results will be verified.
+Supports Vietnamese, English, and bilingual deliverables. Combines practical PM workflows with decision-quality principles: clarify before acting, prefer the smallest useful scope, make changes surgically, and define how results will be verified.
 
 ## What it provides
 
 ### Skills
 
-| Skill | Purpose |
+|| Skill | Purpose |
 | --- | --- |
-| `$pm-vietnamese-copilot` | End-to-end PM workflow for discovery, PRDs, user stories, prioritization, metrics, feedback, meetings, stakeholder updates, and pre-mortems. |
-| `$pm-bilingual-copilot` | Vietnamese-English PM artifacts that preserve meaning across languages for product, engineering, and stakeholder handoffs. |
-| `$pm-karpathy-thinking` | Decision-quality review for ambiguous, solution-led, risky, or over-scoped product proposals. |
+| `pm-vietnamese` | End-to-end PM workflow for discovery, PRDs, user stories, prioritization, metrics, feedback, meetings, stakeholder updates, and pre-mortems. |
+| `pm-bilingual` | Vietnamese-English PM artifacts that preserve meaning across languages for product, engineering, and stakeholder handoffs. |
+| `pm-karpathy-thinking` | Decision-quality review for ambiguous, solution-led, risky, or over-scoped product proposals. |
 
 ### Commands
 
@@ -51,54 +51,47 @@ The skills do not invent metrics, customer quotes, research findings, market fac
 
 ## Installation
 
-### Install skills directly
-
-Clone the repository and copy skills to your AI agent's skill directory:
+Clone the repository and copy skills to your agent's skill directory:
 
 ```bash
 git clone https://github.com/dannyhoang249-hub/pm-vietnamese-skill.git
 cd pm-vietnamese-skill
 
-# Install the main Vietnamese PM copilot skill
-cp -r skills/pm-vietnamese-copilot ~/.hermes/skills/
+# Install all skills
+cp -r skills/* ~/.hermes/skills/
 
-# Optional: Install bilingual and decision-quality skills
-cp -r skills/pm-bilingual-copilot ~/.hermes/skills/
+# Or install individually
+cp -r skills/pm-vietnamese ~/.hermes/skills/
+cp -r skills/pm-bilingual ~/.hermes/skills/
 cp -r skills/pm-karpathy-thinking ~/.hermes/skills/
 ```
 
-Replace `~/.hermes/skills/` with your agent's skill directory path.
+Replace `~/.hermes/skills/` with your agent's skill directory.
 
-### Use as root skill
-
-Alternatively, reference the root SKILL.md directly in your agent configuration, or copy it to your skill directory:
+Alternatively, copy the root SKILL.md:
 
 ```bash
-cp SKILL.md ~/.hermes/skills/pm-vietnamese-copilot.md
+cp SKILL.md ~/.hermes/skills/pm-vietnamese.md
 ```
-
-### Verify installation
-
-Ask your agent to list available PM skills. You should see `pm-vietnamese-copilot`, `pm-bilingual-copilot`, and `pm-karpathy-thinking`.
 
 ## Usage examples
 
 ### Invoke a skill
 
 ```text
-Use $pm-vietnamese-copilot to turn these rough notes into a lean PRD in English. Separate facts, assumptions, and recommendations.
+Use pm-vietnamese to turn these rough notes into a lean PRD in English. Separate facts, assumptions, and recommendations.
 ```
 
 ```text
-Dùng $pm-vietnamese-copilot để chuyển các ghi chú dưới đây thành PRD tiếng Việt cho tính năng đặt lịch khám.
+Dùng pm-vietnamese để chuyển các ghi chú dưới đây thành PRD tiếng Việt cho tính năng đặt lịch khám.
 ```
 
 ```text
-Use $pm-bilingual-copilot to turn these meeting notes into a Vietnamese-English decision record for product and engineering.
+Use pm-bilingual to turn these meeting notes into a Vietnamese-English decision record for product and engineering.
 ```
 
 ```text
-Use $pm-karpathy-thinking to stress-test this feature proposal before we commit engineering time. Recommend proceed, simplify, or validate first.
+Use pm-karpathy-thinking to stress-test this feature proposal before we commit engineering time. Recommend proceed, simplify, or validate first.
 ```
 
 ### Invoke a command
@@ -151,27 +144,27 @@ The skills can produce:
 .
 ├── commands/                  # Command workflows for /discover, /write-prd, etc.
 ├── skills/
-│   ├── pm-vietnamese-copilot/
+│   ├── pm-vietnamese/
 │   │   ├── SKILL.md
 │   │   ├── agents/
 │   │   └── references/
-│   ├── pm-bilingual-copilot/
+│   ├── pm-bilingual/
 │   │   ├── SKILL.md
 │   │   ├── agents/
 │   │   └── references/
 │   └── pm-karpathy-thinking/
 │       ├── SKILL.md
 │       └── agents/
-├── SKILL.md                   # Root-compatible PM skill entry point
+├── SKILL.md                   # Root skill entry point
 └── LICENSE
 ```
 
 ## Customization
 
-- Update `references/templates-vi.md` for team-specific Vietnamese document formats.
-- Update `references/templates-bilingual.md` for approved Vietnamese-English terminology.
+- Update `skills/pm-vietnamese/references/templates-vi.md` for team-specific Vietnamese document formats.
+- Update `skills/pm-bilingual/references/templates-bilingual.md` for approved Vietnamese-English terminology.
 - Adjust files in `commands/` to match your product-development framework, naming conventions, or release process.
-- Keep `SKILL.md` and `skills/pm-vietnamese-copilot/SKILL.md` aligned when changing core behavior.
+- Keep `SKILL.md` and `skills/pm-vietnamese/SKILL.md` aligned when changing core behavior.
 
 ## Acknowledgements
 
