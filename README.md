@@ -10,6 +10,7 @@ Supports Vietnamese, English, and bilingual deliverables. Combines practical PM 
 
 || Skill | Purpose |
 | --- | --- |
+| `pm-workflow` | English thinking partner from problem space to solution space: JTBD, job stories, Job Map, problem gate, Workflow, CDM/ORD, user stories, activity diagrams, wireframes, prioritization, and communication. |
 | `pm-vietnamese` | End-to-end PM workflow for discovery, PRDs, user stories, prioritization, metrics, feedback, meetings, stakeholder updates, and pre-mortems. |
 | `pm-bilingual` | Vietnamese-English PM artifacts that preserve meaning across languages for product, engineering, and stakeholder handoffs. |
 | `pm-karpathy-thinking` | Decision-quality review for ambiguous, solution-led, risky, or over-scoped product proposals. |
@@ -64,6 +65,7 @@ cp -r skills/* ~/.hermes/skills/
 cp -r skills/pm-vietnamese ~/.hermes/skills/
 cp -r skills/pm-bilingual ~/.hermes/skills/
 cp -r skills/pm-karpathy-thinking ~/.hermes/skills/
+cp -r skills/pm-workflow ~/.hermes/skills/
 ```
 
 Replace `~/.hermes/skills/` with your agent's skill directory.
@@ -152,9 +154,12 @@ The skills can produce:
 │   │   ├── SKILL.md
 │   │   ├── agents/
 │   │   └── references/
-│   └── pm-karpathy-thinking/
+│   ├── pm-karpathy-thinking/
+│   │   ├── SKILL.md
+│   │   └── agents/
+│   └── pm-workflow/
 │       ├── SKILL.md
-│       └── agents/
+│       └── references/
 ├── SKILL.md                   # Root skill entry point
 └── LICENSE
 ```
