@@ -1,173 +1,97 @@
-# PM Vietnamese Skills
+# PM Workflow Skill
 
-Product management skills for Vietnamese-speaking teams. Turn incomplete input into clear decisions, execution-ready artifacts, and measurable plans.
+An agent skill that works alongside a Product Manager, from **problem space** to **solution space**, and challenges weak reasoning at each step.
 
-Supports Vietnamese, English, and bilingual deliverables. Combines practical PM workflows with decision-quality principles: clarify before acting, prefer the smallest useful scope, make changes surgically, and define how results will be verified.
+It is built for one failure in particular: a polished document resting on a problem nobody verified.
 
-## What it provides
+## How it works
 
-### Skills
+```text
+PROBLEM SPACE                                  SOLUTION SPACE
+Frame -> Discover -> Define -> Prioritize -[gate]-> Shape -> Specify -> Ship and learn
+  ^                                                                        |
+  +------------------------------ new evidence ----------------------------+
+```
 
-|| Skill | Purpose |
-| --- | --- |
-| `pm-vietnamese` | End-to-end PM workflow for discovery, PRDs, user stories, prioritization, metrics, feedback, meetings, stakeholder updates, and pre-mortems. |
-| `pm-bilingual` | Vietnamese-English PM artifacts that preserve meaning across languages for product, engineering, and stakeholder handoffs. |
-| `pm-karpathy-thinking` | Decision-quality review for ambiguous, solution-led, risky, or over-scoped product proposals. |
-
-### Commands
-
-| Command | Use it for | Output |
+| Stage | Question | Output |
 | --- | --- | --- |
-| `/discover` | Clarifying an idea, problem, or user need | Discovery brief, assumptions, risks, and the smallest useful validation |
-| `/write-prd` | Defining a feature or product requirement | Lean PRD, scope, success metrics, risks, and release plan |
-| `/write-stories` | Breaking work down for a delivery team | User stories, acceptance criteria, edge cases, dependencies, and analytics |
-| `/prioritize` | Choosing what to do first | Decision memo with RICE-style comparison, confidence, assumptions, and recommendation |
-| `/plan-metrics` | Designing measurement for a product goal | North Star metric, input metrics, guardrails, and tracking plan |
-| `/analyze-feedback` | Synthesizing interviews, surveys, reviews, or support tickets | Themes, evidence, opportunities, and next actions |
-| `/meeting-notes` | Turning meeting notes into follow-through | Decisions, action items, owners, and deadlines |
-| `/pre-mortem` | Reviewing launch or execution risk | Tigers, Paper Tigers, Elephants, mitigations, and go/no-go checklist |
-| `/decision-check` | Challenging a decision, scope, roadmap item, or PRD | Facts, assumptions, simpler options, risks, and a measurable decision loop |
+| Frame | Whose problem, why now? | Hypothesis, research direction |
+| Discover | What actually happens? | Past behaviour, Job Map |
+| Define | Which gap is worth closing? | Job stories, problem statement |
+| Prioritize | Why this, at what cost? | Decision and trade-off |
+| Shape | What mechanism, how complex? | Solution direction, Workflow, CDM/ORD |
+| Specify | What gets built, in what slices? | User stories, activity diagrams, wireframes |
+| Ship and learn | Did the gap close? | Metrics, pre-mortem, learnings |
 
-Commands are optional. For simple requests, invoke a skill directly or describe the desired outcome in natural language.
+**The gate.** Before solution work, the problem is rated **Solid**, **Thin** or **Assumed**, with the missing evidence and the cheapest way to get it. The gate informs; you decide. If you proceed anyway, the assumptions are written at the top of the artifact.
 
-## Language behavior
+## Principles
 
-- **Vietnamese:** Used when the request is written in Vietnamese or explicitly asks for Vietnamese.
-- **English:** Used when the request is written in English or explicitly asks for English.
-- **Bilingual Vietnamese-English:** Used when the request includes `bilingual`, `VI/EN`, or `song ngữ`, or when the audience is explicitly mixed.
+1. A problem is a gap between one specific subject's reality and what they want.
+2. Problem space comes first and gets the most thought.
+3. Requests are inputs, not validated problems.
+4. Past behaviour beats opinion.
+5. Make data concrete before abstracting it.
+6. Discovery reduces uncertainty enough to place a bet.
+7. Trade-offs are made in the open.
+8. Context decides.
 
-Bilingual output uses Vietnamese-English headings and translates decision-critical content such as requirements, metric definitions, acceptance criteria, and action items. It avoids mechanically duplicating every sentence.
-
-## Decision-quality principles
-
-Before producing a major artifact, the skills apply four principles:
-
-1. **Think before acting** — separate facts, assumptions, unknowns, interpretations, and trade-offs.
-2. **Simplicity first** — prefer the smallest experiment, scope, or release that can create value or learning.
-3. **Surgical scope** — keep each requirement traceable to a user outcome, risk, or constraint.
-4. **Goal-driven execution** — define `success criteria → signal → decision` before committing significant resources.
-
-The skills do not invent metrics, customer quotes, research findings, market facts, or stakeholder approval. Unknowns are labeled as assumptions and paired with the cheapest useful validation when appropriate.
+The skill does not invent interviews, quotes, numbers or approvals, and keeps facts, assumptions and recommendations separate.
 
 ## Installation
 
-Clone the repository and copy skills to your agent's skill directory:
-
 ```bash
 git clone https://github.com/dannyhoang249-hub/pm-vietnamese-skill.git
-cd pm-vietnamese-skill
-
-# Install all skills
-cp -r skills/* ~/.hermes/skills/
-
-# Or install individually
-cp -r skills/pm-vietnamese ~/.hermes/skills/
-cp -r skills/pm-bilingual ~/.hermes/skills/
-cp -r skills/pm-karpathy-thinking ~/.hermes/skills/
+cp -r pm-vietnamese-skill/skills/pm-workflow <your-agent-skills-directory>/
 ```
 
-Replace `~/.hermes/skills/` with your agent's skill directory.
+Copy the whole folder, since `SKILL.md` loads the files in `references/`.
 
-Alternatively, copy the root SKILL.md:
-
-```bash
-cp SKILL.md ~/.hermes/skills/pm-vietnamese.md
-```
-
-## Usage examples
-
-### Invoke a skill
+## Usage
 
 ```text
-Use pm-vietnamese to turn these rough notes into a lean PRD in English. Separate facts, assumptions, and recommendations.
+Use pm-workflow. My manager wants in-app chat because a competitor launched it.
 ```
 
 ```text
-Dùng pm-vietnamese để chuyển các ghi chú dưới đây thành PRD tiếng Việt cho tính năng đặt lịch khám.
+Use pm-workflow to turn these interview notes into job stories. Tell me what is still missing.
 ```
 
 ```text
-Use pm-bilingual to turn these meeting notes into a Vietnamese-English decision record for product and engineering.
+Use pm-workflow. Sprint planning is in 3 hours, users say the app is slow, and engineering wants to add caching.
 ```
 
 ```text
-Use pm-karpathy-thinking to stress-test this feature proposal before we commit engineering time. Recommend proceed, simplify, or validate first.
+Use pm-workflow to run a decision check on this roadmap item.
 ```
 
-### Invoke a command
+Output is in English by default. Ask for another language or a bilingual version when you need one.
+
+## Structure
 
 ```text
-/discover Online sellers abandon the product-creation flow when they have to add items one at a time.
+skills/pm-workflow/
+├── SKILL.md                  # Principles, stages, gate, how a session runs
+├── agents/openai.yaml
+└── references/
+    ├── problem-space.md      # Interviews, JTBD, job stories, Job Map, synthesis
+    ├── prioritization.md     # Strategy, Kano, trade-offs, pushing back
+    ├── solution-space.md     # Workflow, CDM/ORD, user stories, diagrams, wireframes
+    ├── communication.md      # Ladder of abstraction, meeting notes
+    ├── decision-check.md     # Stress-test before committing
+    ├── launch-and-learn.md   # Metrics, pre-mortem, launch
+    └── templates.md          # Artifact templates
 ```
 
-```text
-/write-prd Add Excel import for a seller-management application.
-```
+## Upgrading from the earlier version
 
-```text
-/prioritize Choose between a new onboarding flow, Excel import, and re-engagement reminders. The quarterly goal is activation.
-```
-
-```text
-/meeting-notes
-[paste the meeting transcript or notes here]
-```
-
-```text
-/decision-check We are planning to build an analytics dashboard with 25 metrics before next quarter.
-```
-
-To request bilingual output, add an explicit instruction such as:
-
-```text
-Return the artifact in Vietnamese and English (VI/EN). Keep assumptions labeled and avoid duplicating non-critical explanation.
-```
-
-## Supported PM outputs
-
-The skills can produce:
-
-- Discovery briefs and problem statements
-- Lean PRDs and feature specifications
-- User stories and delivery backlogs
-- Prioritization and roadmap decision memos
-- OKR, North Star, and measurement plans
-- Experiment plans and validation proposals
-- Customer-feedback synthesis
-- Meeting decision records and stakeholder updates
-- Pre-mortems and launch-readiness reviews
-- Decision-quality reviews with proceed, simplify, or validate recommendations
-
-## Repository structure
-
-```text
-.
-├── commands/                  # Command workflows for /discover, /write-prd, etc.
-├── skills/
-│   ├── pm-vietnamese/
-│   │   ├── SKILL.md
-│   │   ├── agents/
-│   │   └── references/
-│   ├── pm-bilingual/
-│   │   ├── SKILL.md
-│   │   ├── agents/
-│   │   └── references/
-│   └── pm-karpathy-thinking/
-│       ├── SKILL.md
-│       └── agents/
-├── SKILL.md                   # Root skill entry point
-└── LICENSE
-```
-
-## Customization
-
-- Update `skills/pm-vietnamese/references/templates-vi.md` for team-specific Vietnamese document formats.
-- Update `skills/pm-bilingual/references/templates-bilingual.md` for approved Vietnamese-English terminology.
-- Adjust files in `commands/` to match your product-development framework, naming conventions, or release process.
-- Keep `SKILL.md` and `skills/pm-vietnamese/SKILL.md` aligned when changing core behavior.
+`pm-vietnamese`, `pm-bilingual`, `pm-karpathy-thinking` and the slash commands have been replaced by `pm-workflow`. Their feedback synthesis, meeting notes, metrics, pre-mortem, decision check and bilingual rules now live inside it. The old files remain in git history at commit `14fa030`.
 
 ## Acknowledgements
 
-The decision-quality principles are adapted for product management from [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills). This project does not copy the source coding skill; it applies the underlying principles to PM discovery, prioritization, documentation, and execution.
+- The discovery-to-delivery method draws on the author's study in the *Breaking into Product Management* course. This is an independent, paraphrased adaptation, not affiliated with or endorsed by the course.
+- Decision-check principles are adapted from [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills).
 
 ## License
+
+[MIT](LICENSE)
