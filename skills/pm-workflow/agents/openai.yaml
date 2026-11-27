@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM Workflow"
+  short_description: "Think from problem space to solution space with a PM partner."
+  default_prompt: "Use $pm-workflow to check this product request: find the real problem, challenge weak assumptions, and give me the next step."

@@ -40,7 +40,7 @@ Skip artifacts that align nobody. A small scope may need no workflow.
 Describes **what must happen**, not how.
 
 - Actors are people or roles. The system is not an actor.
-- No mechanisms: "Verify identity", not "Click Google sign-in and call the API". Splitting a "how" into smaller steps keeps it a "how".
+- No mechanisms: "Approve the claim", not "Click Approve in the admin panel". Splitting a "how" into smaller steps keeps it a "how".
 - Exception: a legacy constraint that cannot change within the planning horizon behaves like a requirement. Include it and mark it as a constraint.
 - State preconditions and every ending, happy and unhappy.
 - Start and end nodes; every action connected in and out; decision nodes phrased as questions; one consistent notation.
@@ -70,7 +70,7 @@ A job story lives in problem space. A user story lives in solution space. The mi
 
 Map them: workflow steps across, stories beneath by priority, then draw the release line.
 
-**Actors** are roles the system treats differently (permissions, screens, data). Personas, named individuals and data scopes ("teacher of course A") are not roles. Avoid a generic "user" when roles differ.
+**Actors** are roles the system treats differently (permissions, screens, data). Personas, named individuals and data scopes ("manager of region A") are not roles. Avoid a generic "user" when roles differ.
 
 **Preconditions** (true before the story starts):
 1. Who, authenticated and authorized
@@ -79,6 +79,8 @@ Map them: workflow steps across, stories beneath by priority, then draw the rele
 4. Any required state of the object
 
 **Acceptance criteria** are observable, at least one per story, Given/When/Then where behaviour is conditional. Cover empty, loading, error and permission states where relevant. One story per independently estimable and testable action unless engineering agrees to bundle.
+
+Label each slice **first release**, **fast follow** or **out of scope**. Note dependencies, analytics events and accessibility needs where they apply. Do not invent API contracts or engineering estimates.
 
 ## 6. Activity diagram
 

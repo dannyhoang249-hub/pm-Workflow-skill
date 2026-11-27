@@ -18,11 +18,13 @@ Real work usually starts with a high-level business problem or a request. Establ
 - **Trigger:** boss, intuition, customer feedback, sales or support, data, competitor.
 - **Whose problem:** the user, the buyer, the business, and why each would care. A real pain for one party may not matter to the one who pays to fix it.
 - **Value exchange:** what the company gets back for solving it. A free product still needs this answer.
-- **Hidden presumptions:** a goal such as "we need to become a platform" already assumes a solution. List what must be true for it.
+- **Hidden presumptions:** a goal such as "we need an AI assistant to retain customers" already assumes a solution. List what must be true for it.
 
 With strategy given from above, let it bound the research. Purely bottom-up research can surface patterns the company has no intention of acting on.
 
 For a complaint ("it's slow"), separate three gaps before accepting any fix: reality (measured), perception (how it feels), expectation (what they now compare it to). Each calls for a different solution.
+
+When many things are unknown, rank assumptions by impact and uncertainty, and test the riskiest with the smallest study that could change the decision.
 
 ## 2. Choose a research direction
 
@@ -35,7 +37,7 @@ Avoid locking a cause into the topic ("X happens because Y"). It leaves no fallb
 
 ## 3. Choose and screen participants
 
-- Define people by **situation and behaviour**. Job title and age do not reveal the job they are trying to get done. The same symptom (missed deadlines) can come from unrelated causes.
+- Define people by **situation and behaviour**. Job title and age do not reveal the job they are trying to get done. The same symptom (late expense claims) can come from unrelated causes.
 - Exploring: wide on context, strict on behaviour. Each person must have actually experienced the thing.
 - Screeners ask for **countable facts** ("How many times in the past month...?"). Avoid yes/no questions that reveal the wanted answer, and avoid asking people to diagnose their own cause.
 - Screen for the phenomenon, not the suspected cause. Deliberately include people who could disprove the hypothesis.
@@ -83,7 +85,15 @@ In the session, let the user do most of the talking, treat compliments and hypot
 
 1. **Climb down.** For each raw excerpt, fill the gaps: trigger, context, motivation, desired outcome, consequence. Follow up if they are missing.
 2. **Code.** Label excerpts, compare within and across people, group codes into themes. Go back to the field as questions sharpen. Collection and analysis alternate.
-3. **Climb up.** Group by shared job, not shared surface behaviour. Three people may all double-check an output for three different reasons; those are separate jobs until more evidence merges them.
+3. **Climb up.** Group by shared job, not shared surface behaviour. Three people may all export data to a spreadsheet for three different reasons; those are separate jobs until more evidence merges them.
+
+### Existing feedback (surveys, reviews, tickets, notes)
+
+- State source, period, sample size, segments and known bias.
+- Group by need, pain or outcome, not by sentiment alone. Keep short original quotes.
+- Score separately: frequency, severity, evidence of cause, and requested solution.
+- Report counter-signals and what the data cannot conclude. A few examples do not show prevalence.
+- End with the next move: research further, instrument, make a small change, or prioritize.
 
 ## 7. Know when to stop
 

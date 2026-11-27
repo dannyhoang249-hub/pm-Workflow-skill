@@ -20,4 +20,13 @@ When someone does not understand, ask: which rung are they on, and how far can I
 
 Prefer a small written artifact (a concept diagram, a one-page memo) over a verbal explanation when agreement needs to be remembered.
 
+## Meeting notes and updates
+
+- Record as decided only what was actually decided. Keep proposals, opinions and open questions apart.
+- Write each action as verb plus result, with owner and due date only when stated.
+- Note dependencies, disagreements, and what would change the decision.
+- Open with the decisions that matter most.
+
+## Before sending
+
 Before drafting any message, establish: who reads it, what they should decide or do, and what they already know.

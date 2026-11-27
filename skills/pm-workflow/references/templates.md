@@ -38,6 +38,17 @@ Assumptions / what would prove this wrong:
 Gate: Solid | Thin | Assumed
 ```
 
+## Feedback synthesis
+```markdown
+# Feedback: [source, period, sample]
+Limits and bias:
+| Theme (need / pain) | Quotes or signals | Segment | Frequency | Severity | Confidence |
+| --- | --- | --- | --- | --- | --- |
+Counter-signals:
+Cannot conclude:
+Next step:
+```
+
 ## Priority decision
 ```markdown
 # Decision: [goal]
@@ -74,10 +85,12 @@ Problem statement; research evidence; chosen job story and desired outcome
 Direction and alternatives rejected
 Workflow; CDM/ORD
 User stories and release slices; activity diagrams; wireframes
-Permissions, constraints, dependencies
+Permissions, non-functional requirements, constraints, dependencies
+Analytics: events, properties, dashboard
 ## Risks and open questions
-## Rollout and learning plan
+## Rollout, support and learning plan
 ```
+Every requirement traces to a goal or a stated constraint. For large requests, propose phases.
 
 ## Measurement plan
 ```markdown
